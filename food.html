@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FoodSHOW</title>
+    <style>
+      .banana {
+        border-radius: 5px;
+        background: red;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+      }
+      .produto {
+        margin-radius: 5px;
+        background: yellow;
+        margin-bottom: 5px;
+        color: black;
+        font-style: italic;
+        padding: 1px;
+        box-shadow: 0 0 10px 0 #bbbbbb;
+        cursor: pointer;
+        border:  10px solid white;
+
+      }
+      .aqui {
+        margin-bottom: 5px;
+      }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        margin: 0;
+      }
+      h3, h6, h9 {
+        background: green;
+        font-size: 50px;
+        border-radius: 10px;
+      }
+      img {
+        /*size: 20px;*/
+        width: 130px;
+        border-radius: 5px;
+        float: right;
+      }
+      .chivasFood{
+        width: 8%;
+      }
+      .botao{text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        border-radius: 50px;
+        color: white;
+        cursor: pointer;
+        font-style: !important;
+        font-size: 20px;
+        font-weight: bold;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banana">
+      <h1><strong>FoodSHOW</strong></h1>
+      <h2>Monte seu pedido e receba em 15 minutos</h2>
+    </div>
+
+    <h3><strong> Prato Principal</strong></h3>
+    <div id="peixe" class="produto" onclick = "escolhePedido()">
+      <img src="C:\Users\lucas\OneDrive\Imagens\peixefood.jpg"/>
+      <h4 class="aqui">Um jaú ao molho de uma das iguarias do Goiás pique e maracuja.</h4>
+      <p><strong>Serve um casal</strong></p>
+      <p><strong>R$ 150,00 </strong></p>
+    </div>
+
+     <div id = "pintado" class="produto" onclick = "escolhePedido1()">
+      <img src="C:\Users\lucas\OneDrive\Imagens\pintadofood.jpg"/>
+      <h5 class="aqui">Pintado assado no bafu, ao molho vinagrete com ervas finas</h5>
+      <p><strong>Serve um casal</strong></p>
+      <p><strong>R$ 120,00 </strong></p>
+    </div>
+
+    <h6><strong>Bebidas</strong></h6>
+     <div  id = "chivas" class="produto"  onclick = "escolhePedido2()">
+      <img class="chivasFood" src="C:\Users\lucas\OneDrive\Imagens\chivasFood.jpg"/>
+      <h7 class="aqui">Uma tradição da casa, chiva e mel.</h7>
+      <p><strong>Serve uma familia</strong></p>
+      <p><strong>R$ 180,00 </strong></p>
+    </div>
+
+
+     <div id="maça"  class="produto" onclick = "escolhePedido3()">
+      <img src="C:\Users\lucas\OneDrive\Imagens\sucoFood.jpg"/>
+      <h8 class="aqui">Suco de maça verde com mel</h8>
+      <p><strong>individual</strong></p>
+      <p><strong>R$ 7,00 </strong></p>
+    </div>
+
+
+    <h9><strong>Sobremesa</strong></h9>
+     <div id="torta" class="produto" onclick = "escolhePedido4()">
+      <img src="C:\Users\lucas\OneDrive\Imagens\tortaFood.jpg"/>
+      <h10 class="aqui">Torta de limão com chocolate ao mel</h10>
+      <p><strong>Serve até 5 pessoas</strong></p>
+      <p><strong>R$ 70,00 </strong></p>
+    </div>
+
+
+     <div  id="churros" class="produto" onclick = "escolhePedido5()">
+      <img src="C:\Users\lucas\OneDrive\Imagens\churroFood.jpg"/>
+      <h11 class="aqui">Churros de Kiev, acompanha tentaculos de lula</h11>
+      <p><strong>individual</strong></p>
+      <p><strong>R$ 13,00 </strong></p>
+    </div>
+
+    <div class="botao" onclick="finalizaPedido()"> Finalizar Pedido</div>
+    <script>
+      let prato;
+      let sobremesa;
+      let bebidas;
+      function escolhePedido(){
+        document.getElementById("peixe").style.borderColor = "green";
+        document.getElementById("pintado").style.borderColor = "#bbbbbb";
+        prato = "Peixe";
+      }
+
+      function escolhePedido1(){
+        document.getElementById("pintado").style.borderColor = "green";
+        document.getElementById("peixe").style.borderColor = "#bbbbbb";
+        prato = "Pintado";
+      }
+
+      function escolhePedido2(){
+        document.getElementById("chivas").style.borderColor = "green";
+        document.getElementById("maça").style.borderColor = "#bbbbbb";
+        bebidas =  "Chivas";
+      }
+      function escolhePedido3(){
+        document.getElementById("maça").style.borderColor = "green";
+        document.getElementById("chivas").style.borderColor = "#bbbbbb";
+        bebidas = "Suco de Maça";
+      }
+      function escolhePedido4(){
+        document.getElementById("torta").style.borderColor = "green";
+        document.getElementById("churros").style.borderColor = "#bbbbbb";
+        sobremesa = "Torta";
+      }
+      function escolhePedido5(){
+        document.getElementById("churros").style.borderColor = "green";
+        document.getElementById("torta").style.borderColor = "#bbbbbb";
+        sobremesa = "Churros";
+      }
+
+      function finalizaPedido(){
+        let mensagem;
+        mensagem  = "Olá, gostaria de pede uma combo:"+ " " + prato + " ," + bebidas+ " e " + sobremesa;
+
+         //integrando ao whatsapp 
+        window.open("https://api.whatsapp.com/send/?phone=%2B5521985798089&text=" + mensagem);
+      }
+  
+    </script>
+  </body>
+</html>
